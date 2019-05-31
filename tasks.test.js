@@ -4,6 +4,13 @@ test('Test setup working', () => {
   expect(true).toBeTruthy()
 })
 
+// test('Display function displays content', () => {
+//   const string = 'Hello, my name is Anisha'
+//   const expected = 'Hello, my names is Anisha'
+//   const actual = tasks.display(string)
+//   expect(actual).toBe(expected)
+// })
+
 test('Displays names of all listeners', () => {
 // ARRANGE
   const names = [
