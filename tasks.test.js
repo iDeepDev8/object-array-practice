@@ -4,26 +4,17 @@ test('Test setup working', () => {
   expect(true).toBeTruthy()
 })
 
-// test('Display function displays content', () => {
-//   const string = 'Hello, my name is Anisha'
-//   const expected = 'Hello, my names is Anisha'
-//   const actual = tasks.display(string)
-//   expect(actual).toBe(expected)
-// })
-
 test('Displays names of all listeners', () => {
 // ARRANGE
-  const names = [
+  const listeners = [
     { name: 'Frodo' },
     { name: 'Gandalf' },
     { name: 'Aragorn' }
   ]
 
   const expected = 'Frodo, Gandalf, Aragorn'
-
   // ACT
-  const actual = tasks.displayNames(names)
-
+  const actual = tasks.displayNames(listeners)
   // ASSERT
   expect(actual).toBe(expected)
 })
@@ -48,6 +39,5 @@ test('Displays the listeners and their genres', () => {
   }
 
   const actual = tasks.displayGenres(listeners)
-
   expect(actual).toStrictEqual(expected)
 })
