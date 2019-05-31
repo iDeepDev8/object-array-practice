@@ -21,6 +21,26 @@ test('Displays names of all listeners', () => {
   expect(actual).toBe(expected)
 })
 
-// ARRANGE
-// ACT
-// ASSERT
+test('Displays the listeners and their genres', () => {
+  const listeners = [
+    { name: 'Frodo',
+      genres: ['k-pop', 'hip hop']
+    },
+    { name: 'Gandalf',
+      genres: ['country', 'rock']
+    },
+    { name: 'Aragorn',
+      genres: ['soul', 'reggae']
+    }
+  ]
+
+  const expected = {
+    Frodo: ['k-pop', 'hip hop'],
+    Gandalf: ['country', 'rock'],
+    Aragorn: ['soul', 'reggae']
+  }
+
+  const actual = tasks.displayGenres(listeners)
+
+  expect(actual).toStrictEqual(expected)
+})
