@@ -10,6 +10,15 @@ function getListenerGenres(listeners) {
     })
 }
 
+function getArtistNames(artists, genres) {
+    return artists
+        .filter(artist => {
+            return genres.includes(artist.genre)
+        })
+        .map(artist => {
+            return artist.name
+        })
+}
 module.exports = {
 
 }
