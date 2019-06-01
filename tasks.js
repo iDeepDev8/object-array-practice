@@ -19,6 +19,17 @@ function getArtistNames(artists, genres) {
             return artist.name
         })
 }
+
+function getArtistIDs(artists, genres) {
+    return artists
+        .filter(artist => {
+            return genres.includes(artist.genre)
+        })
+        .map(artist => {
+            return artist.id
+        })
+}
+
 module.exports = {
 
 }
