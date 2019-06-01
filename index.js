@@ -4,7 +4,7 @@ const artists = require('./data/artists')
 
 const namesOfListeners = tasks.displayNames(listeners)
 const genres = tasks.displayGenres(listeners)
-const namesOfArtists = tasks.displayNames(artists)
+const namesOfArtists = tasks.popArtists(artists)
 
 function display (thingToDisplay) {
   // eslint-disable-next-line no-console

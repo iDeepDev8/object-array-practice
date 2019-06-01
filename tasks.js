@@ -13,11 +13,23 @@ function displayGenres (arr) {
     genres[arr[i].name] = arr[i].genres
   }
 
-  console.log(genres)
   return genres
+}
+
+function popArtists (arr) {
+  let names = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].genre === 'pop') {
+      names.push(arr[i].name)
+    }
+  }
+
+  return names.join(', ')
 }
 
 module.exports = {
   displayNames,
-  displayGenres
+  displayGenres,
+  popArtists
 }
