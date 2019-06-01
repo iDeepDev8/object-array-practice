@@ -40,9 +40,28 @@ function displayIDs (arr) {
   return IDs
 }
 
+function displayReleases (artistArray, releaseArray, artist) {
+  let ID = 0
+  let releases = []
+
+  for (let i = 0; i < artistArray.length; i++) {
+    for (let j = 0; j < releaseArray.length; j++) {
+      if (artistArray[i].name === artist) {
+        ID = artistArray[i].id
+
+        if (releaseArray[j].artistId === ID) {
+          releases.push(releaseArray[j].name)
+        }
+      }
+    }
+  }
+  return releases.join(', ')
+}
+
 module.exports = {
   displayNames,
   displayGenres,
   popArtists,
-  displayIDs
+  displayIDs,
+  displayReleases
 }

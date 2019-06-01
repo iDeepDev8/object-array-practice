@@ -77,3 +77,23 @@ test('Displays the release IDs of the rap and trap artists', () => {
   const actual = tasks.displayIDs(artists)
   expect(actual).toStrictEqual(expected)
 })
+
+test('Display the release names of a particular artist', () => {
+  const artists = [
+    { name: 'Beyonce', id: 1 },
+    { name: 'Eminem', id: 2 },
+    { name: 'Rihanna', id: 3 }
+  ]
+
+  const releases = [
+    { id: 1, artistId: 1, name: 'Dangerously in Love' },
+    { id: 2, artistId: 1, name: 'Lemonade' },
+    { id: 3, artistId: 3, name: 'Unapologetic' },
+    { id: 4, artistId: 2, name: 'The Slim Shady' },
+    { id: 5, artistId: 3, name: 'Good Girl Gone Bad' }
+  ]
+
+  const expected = 'Unapologetic, Good Girl Gone Bad'
+  const actual = tasks.displayReleases(artists, releases, 'Rihanna')
+  expect(actual).toBe(expected)
+})
