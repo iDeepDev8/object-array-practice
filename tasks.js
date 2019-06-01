@@ -37,5 +37,9 @@ function getArtistReleases(artistName, artists, releases) {
     .map(release => release.name)
 }
 module.exports = {
-
+    getListenerNames,
+    getListenerGenres,
+    getArtistNames,
+    getArtistReleases,
+    getArtistIDs
 }
