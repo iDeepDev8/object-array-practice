@@ -162,3 +162,73 @@ test('Displays the names of the releases that match the genre of a particular li
   expect(actual).toEqual(expected)
 })
 
+test('Displays the names of the releases that match the artist', () => {
+  const artists = [
+    { name: 'Lady Gaga', id: 1 },
+    { name: 'Beyonce', id: 3 },
+    { name: 'Eminem', id: 4 }
+  ]
+
+  const releases = [
+    { name: 'Joanne', artistId: 1 },
+    { name: 'Dangerously in Love', artistId: 3 },
+    { name: 'The Slim Shady', artistId: 4 },
+    { name: 'The Fame', artistId: 1 },
+    { name: 'Revival', artistId: 4 }
+  ]
+
+  const expected = {
+    'Lady Gaga': ['Joanne', 'The Fame'],
+    Beyonce: ['Dangerously in Love'],
+    Eminem: ['The Slim Shady', 'Revival']
+  }
+
+  const actual = tasks.matchArtists(artists, releases)
+  expect(actual).toEqual(expected)
+})
+
+test('Displays artist and release names of all of the listeners', () => {
+  const listeners = [
+    { name: 'Frodo',
+      genres: ['pop', 'hip hop']
+    },
+    { name: 'Gandalf',
+      genres: ['rap', 'hip hop']
+    }
+  ]
+
+  const artists = [
+    { name: 'Lady Gaga', genre: 'pop', id: 1 },
+    { name: 'Jay-Z', genre: 'hip hop', id: 2 },
+    { name: 'Beyonce', genre: 'pop', id: 3 },
+    { name: 'Eminem', genre: 'rap', id: 4 },
+    { name: 'Kendrick Lamar', genre: 'hip hop', id: 5 }
+  ]
+
+  const releases = [
+    { genre: 'pop', name: 'Joanne', artistId: 1 },
+    { genre: 'hip hop', name: 'The Blueprint', artistId: 2 },
+    { genre: 'pop', name: 'Dangerously in Love', artistId: 3 },
+    { genre: 'rap', name: 'The Slim Shady', artistId: 4 },
+    { genre: 'pop', name: 'The Fame', artistId: 1 },
+    { genre: 'hip hop', name: 'DAMN.', artistId: 5 },
+    { genre: 'rap', name: 'Revival', artistId: 4 }
+  ]
+
+  const expected = {
+    Frodo: {
+      'Lady Gaga': ['Joanne', 'The Fame'],
+      'Jay-Z': ['The Blueprint'],
+      Beyonce: ['Dangerously in Love'],
+      'Kendrick Lamar': ['DAMN.']
+    },
+    Gandalf: {
+      'Jay-Z': ['The Blueprint'],
+      Eminem: ['The Slim Shady', 'Revival'],
+      'Kendrick Lamar': ['DAMN.']
+    }
+  }
+
+  const actual = tasks.displayAll(listeners, artists, releases)
+  expect(actual).toEqual(expected)
+})

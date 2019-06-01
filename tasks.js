@@ -12,7 +12,6 @@ function displayGenres (arr) {
   for (let i = 0; i < arr.length; i++) {
     genres[arr[i].name] = arr[i].genres
   }
-
   return genres
 }
 
@@ -24,7 +23,6 @@ function popArtists (arr) {
       names.push(arr[i].name)
     }
   }
-
   return names.join(', ')
 }
 
@@ -36,7 +34,6 @@ function displayIDs (arr) {
       IDs[arr[i].name] = arr[i].releaseIds
     }
   }
-
   return IDs
 }
 
@@ -100,6 +97,42 @@ function getReleasesOfGenres (listeners, releases, name) {
   return result
 }
 
+function matchArtists (artists, releases) {
+  let result = {}
+
+  for (let i = 0; i < artists.length; i++) {
+    result[artists[i].name] = []
+    for (let j = 0; j < releases.length; j++) {
+      if (artists[i].id === releases[j].artistId) {
+        result[artists[i].name].push(releases[j].name)
+      }
+    }
+  }
+  return result
+}
+
+function displayAll (listeners, artists, releases) {
+  let result = {}
+  let genres = []
+  let keys = []
+
+  for (let i = 0; i < listeners.length; i++) {
+    keys = Object.values(getArtistsOfGenres(listeners, artists, listeners[i].name)).toString().split(',')
+    
+    listeners.forEach(x => {
+      result[x.name] = {}
+      genres = x.genres
+
+
+
+      Object.keys(result[x.name]).push(keys)  
+      console.log(keys)   
+    })
+    
+  }
+  return result
+}
+
 module.exports = {
   displayNames,
   displayGenres,
@@ -107,5 +140,7 @@ module.exports = {
   displayIDs,
   displayReleases,
   getArtistsOfGenres,
-  getReleasesOfGenres
+  getReleasesOfGenres,
+  matchArtists,
+  displayAll
 }
