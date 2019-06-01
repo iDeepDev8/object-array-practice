@@ -162,31 +162,6 @@ test('Displays the names of the releases that match the genre of a particular li
   expect(actual).toEqual(expected)
 })
 
-test('Displays the names of the releases that match the artist', () => {
-  const artists = [
-    { name: 'Lady Gaga', id: 1 },
-    { name: 'Beyonce', id: 3 },
-    { name: 'Eminem', id: 4 }
-  ]
-
-  const releases = [
-    { name: 'Joanne', artistId: 1 },
-    { name: 'Dangerously in Love', artistId: 3 },
-    { name: 'The Slim Shady', artistId: 4 },
-    { name: 'The Fame', artistId: 1 },
-    { name: 'Revival', artistId: 4 }
-  ]
-
-  const expected = {
-    'Lady Gaga': ['Joanne', 'The Fame'],
-    Beyonce: ['Dangerously in Love'],
-    Eminem: ['The Slim Shady', 'Revival']
-  }
-
-  const actual = tasks.matchArtists(artists, releases)
-  expect(actual).toEqual(expected)
-})
-
 test('Displays artist and release names of all of the listeners', () => {
   const listeners = [
     { name: 'Frodo',
