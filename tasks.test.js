@@ -49,9 +49,9 @@ test('display the name of the pop artists', () => {
         { name: 'The Beatles' }
     ]
 
-    const expected = { 
+    const expected = [ 
         'Queen, Thievery Corporation, The Roots, Baauer, Iron & Wine, Armin van Buuren, The Beatles' 
-    }
+    ]
 
     const actual = tasks.displayArtists(artists)
     expect(actual).toBe(expected)
@@ -79,9 +79,9 @@ test('display the names of the releases by Queen', () => {
         { name: 'Innuendo' }
     ]
 
-    const expected = { 
-        ['Flash Gordon, A Kind of Magic, Innuendo']
-    }
+    const expected = [ 
+        'Flash Gordon, A Kind of Magic, Innuendo'
+    ]
 
     const actual = tasks.displayReleases(artists, releases)
     expect(actual).toBe(expected)
@@ -92,9 +92,9 @@ test('display the artist names of Debras genres', () => {
         { name: 'Debra', genres: ['pop', 'chill'], artists: ['Queen', 'Thievery Corporation', 'The Beatles'] }
     ]
 
-    const expected = {
-        ['Queen, Thievery Corporation, The Beatles']
-    }
+    const expected = [
+        'Queen, Thievery Corporation, The Beatles'
+    ]
 
     const actual = tasks.displayArtistByGenre(listeners, artists)
     expect(actual).toBe(expected)
@@ -105,9 +105,9 @@ test('display the release names of Jonos genres', () => {
         { name: 'Jono', genres: ['rap', 'trap'], releases: ['Phrenology', 'The Tipping Point', 'Harlem Shake', 'Dum Dum', ] }
     ]
 
-    const expected = {
-        ['Phrenology', 'The Tipping Point', 'Harlem Shake', 'Dum Dum']
-    }
+    const expected = [
+        'Phrenology', 'The Tipping Point', 'Harlem Shake', 'Dum Dum'
+    ]
 
     const actual = tasks.displayReleasesByGenre(listeners, releases)
     expect(actual).toBe(expected)
