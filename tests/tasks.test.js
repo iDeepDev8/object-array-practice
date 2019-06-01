@@ -48,10 +48,15 @@ test('should display the artist names of Listeners\'s genres', () => {
     // Arrange
     const expected = ['Knifeparty']
     const genres = ['trap', 'bop']
+test('should display the names of the releases by Queen', () => {
+    // Arrange
+    const artist = 'Queen'
+    const releases = [{ id: 1, artistId: 1, name: 'Night at the Opera', genre: 'Rock', year: 1975 }, { id: 2, artistId: 2, name: 'Mirage', genre: 'Trance', year: 2010 }]
+    const expected = ['Night at the Opera']
     // Act
-    const actual = Tasks.getArtistNames(artists, ['pop'])
+    const actual = Tasks.getArtistReleases(artist, releases)
     // Assert
-    expect(actual).toBe(expected)
+    expect(actual).toEqual(expected)
 });
 
 // test('should display artists and release names of all the listners', () => {
