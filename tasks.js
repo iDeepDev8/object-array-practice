@@ -79,11 +79,33 @@ function getArtistsOfGenres (listeners, artists, name) {
   return result
 }
 
+function getReleasesOfGenres (listeners, releases, name) {
+  let result = {}
+  let genres = []
+
+  for (let i = 0; i < listeners.length; i++) {
+    if (listeners[i].name === name) {
+      genres = listeners[i].genres
+    }
+  }
+
+  for (let i = 0; i < genres.length; i++) {
+    result[genres[i]] = []
+    for (let j = 0; j < releases.length; j++) {
+      if (releases[j].genre === genres[i]) {
+        result[genres[i]].push(releases[j].name)
+      }
+    }
+  }
+  return result
+}
+
 module.exports = {
   displayNames,
   displayGenres,
   popArtists,
   displayIDs,
   displayReleases,
-  getArtistsOfGenres
+  getArtistsOfGenres,
+  getReleasesOfGenres
 }

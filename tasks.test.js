@@ -78,7 +78,7 @@ test('Displays the release IDs of the rap and trap artists', () => {
   expect(actual).toEqual(expected)
 })
 
-test('Display the release names of a particular artist', () => {
+test('Displays the release names of a particular artist', () => {
   const artists = [
     { name: 'Beyonce', id: 1 },
     { name: 'Eminem', id: 2 },
@@ -98,7 +98,7 @@ test('Display the release names of a particular artist', () => {
   expect(actual).toBe(expected)
 })
 
-test('Display the names of the artists that match the genre of a particular listener', () => {
+test('Displays the names of the artists that match the genre of a particular listener', () => {
   const listeners = [
     { name: 'Frodo',
       genres: ['pop', 'hip hop']
@@ -130,3 +130,35 @@ test('Display the names of the artists that match the genre of a particular list
   expect(actual).toEqual(expected)
 }
 )
+
+test('Displays the names of the releases that match the genre of a particular listener', () => {
+  const listeners = [
+    { name: 'Frodo',
+      genres: ['pop', 'hip hop']
+    },
+    { name: 'Gandalf',
+      genres: ['rap', 'hip hop']
+    },
+    { name: 'Aragorn',
+      genres: ['soul', 'reggae']
+    }
+  ]
+
+  const releases = [
+    { genre: 'pop', name: 'Dangerously in Love' },
+    { genre: 'reggae', name: 'Catch a Fire' },
+    { genre: 'pop', name: 'Unapologetic' },
+    { genre: 'rap', name: 'The Slim Shady' },
+    { genre: 'soul', name: 'Whats Going On' },
+    { genre: 'soul', name: 'Songs in the Key of Life' }
+  ]
+
+  const expected = {
+    soul: ['Whats Going On', 'Songs in the Key of Life'],
+    reggae: ['Catch a Fire']
+  }
+
+  const actual = tasks.getReleasesOfGenres(listeners, releases, 'Aragorn')
+  expect(actual).toEqual(expected)
+})
+
