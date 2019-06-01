@@ -1,6 +1,6 @@
-const listeners = require('./data/listeners')
-const releases = require('./data/releases')
-const artists = require('./data/artists')
+function getListenerNames(listeners) {
+    return listeners.map(e => {
+        return e.name
 
 module.exports = {
 
