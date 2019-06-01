@@ -39,7 +39,7 @@ test('Displays the listeners and their genres', () => {
   }
 
   const actual = tasks.displayGenres(listeners)
-  expect(actual).toStrictEqual(expected)
+  expect(actual).toEqual(expected)
 })
 
 test('Displays the names of the pop artists', () => {
@@ -75,7 +75,7 @@ test('Displays the release IDs of the rap and trap artists', () => {
   }
 
   const actual = tasks.displayIDs(artists)
-  expect(actual).toStrictEqual(expected)
+  expect(actual).toEqual(expected)
 })
 
 test('Display the release names of a particular artist', () => {
@@ -97,3 +97,36 @@ test('Display the release names of a particular artist', () => {
   const actual = tasks.displayReleases(artists, releases, 'Rihanna')
   expect(actual).toBe(expected)
 })
+
+test('Display the names of the artists that match the genre of a particular listener', () => {
+  const listeners = [
+    { name: 'Frodo',
+      genres: ['pop', 'hip hop']
+    },
+    { name: 'Gandalf',
+      genres: ['rap', 'hip hop']
+    },
+    { name: 'Aragorn',
+      genres: ['soul', 'reggae']
+    }
+  ]
+
+  const artists = [
+    { name: 'Lady Gaga', genre: 'pop' },
+    { name: 'Jay-Z', genre: 'hip hop' },
+    { name: 'Beyonce', genre: 'pop' },
+    { name: 'Eminem', genre: 'rap' },
+    { name: 'Justin Bieber', genre: 'pop' },
+    { name: 'Rihanna', genre: 'pop' },
+    { name: 'Bob Marley', genre: 'reggae' }
+  ]
+
+  const expected = {
+    pop: ['Lady Gaga', 'Beyonce', 'Justin Bieber', 'Rihanna'],
+    'hip hop': ['Jay-Z']
+  }
+
+  const actual = tasks.getArtistsOfGenres(listeners, artists, 'Frodo')
+  expect(actual).toEqual(expected)
+}
+)

@@ -8,6 +8,7 @@ const genres = tasks.displayGenres(listeners)
 const artistNames = tasks.popArtists(artists)
 const IDs = tasks.displayIDs(artists)
 const releaseNames = tasks.displayReleases(artists, releases, 'Queen')
+const genreArtists = tasks.getArtistsOfGenres(listeners, artists, 'Debra')
 
 function display (thingToDisplay) {
   // eslint-disable-next-line no-console
@@ -21,3 +22,5 @@ display('Display the names of the pop artists: ' + artistNames)
 display('Display the release IDs of the rap and trap artists:')
 display(IDs)
 display('Display the names of the releases by Queen: ' + releaseNames)
+display('Display the artist names of Debras genres:')
+display(genreArtists)

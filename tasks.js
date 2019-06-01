@@ -58,10 +58,32 @@ function displayReleases (artistArray, releaseArray, artist) {
   return releases.join(', ')
 }
 
+function getArtistsOfGenres (listeners, artists, name) {
+  let genres = []
+  let result = {}
+
+  for (let i = 0; i < listeners.length; i++) {
+    if (listeners[i].name === name) {
+      genres = listeners[i].genres
+    }
+  }
+
+  for (let i = 0; i < genres.length; i++) {
+    result[genres[i]] = []
+    for (let j = 0; j < artists.length; j++) {
+      if (artists[j].genre === genres[i]) {
+        result[genres[i]].push(artists[j].name)
+      }
+    }
+  }
+  return result
+}
+
 module.exports = {
   displayNames,
   displayGenres,
   popArtists,
   displayIDs,
-  displayReleases
+  displayReleases,
+  getArtistsOfGenres
 }
