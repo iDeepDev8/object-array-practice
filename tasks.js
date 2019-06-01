@@ -113,12 +113,9 @@ function displayAll (listeners, artists, releases) {
     releaseObject = createObject (artistIDs, releases, artists)
     result[listeners[i].name] = releaseObject
   }
-  console.log(result)
   return result
 }
 
-
-//  [ 'Eminem', 'Jay-Z', 'Kendrick Lamar' ]
 // write a function that takes an array of names and returns an array of IDs
 
 function getIDsFromArtistNames (names, artists) {
@@ -134,24 +131,22 @@ function getIDsFromArtistNames (names, artists) {
 return artistIDs
 }
 
-//  [ 4, 2, 5 ]
+// write a function to create an array of release names when given artist name
+function getReleasesOfArtist (name, artists, releases) {
+  let artistReleases = []
 
-  // write a function to create an array of release names when given artist name
-  function getReleasesOfArtist (name, artists, releases) {
-    let artistReleases = []
-
-    for (let i=0; i<artists.length; i++) {
-      if (name === artists[i].name) {
-        for (let j=0; j<releases.length; j++) {
-          if (artists[i].id === releases[j].artistId)
-          artistReleases.push(releases[j].name)
-        }
+  for (let i=0; i<artists.length; i++) {
+    if (name === artists[i].name) {
+      for (let j=0; j<releases.length; j++) {
+        if (artists[i].id === releases[j].artistId)
+        artistReleases.push(releases[j].name)
       }
     }
-  return artistReleases
+  }
+return artistReleases
 }
 
-  // write a function that takes the artist ID and creates an object of {artist: [releases]}
+// write a function that takes the artist ID and creates an object of {artist: [releases]}
 
 function createObject (IDs, releases, artists) {
   let artistObject = {}
@@ -165,7 +160,7 @@ function createObject (IDs, releases, artists) {
     }
   }
   return artistObject
-  }
+}
 
 module.exports = {
   displayNames,
