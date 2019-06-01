@@ -18,3 +18,9 @@ console.log('Pop Artists:')
 Tasks.getArtistNames(artists, ['pop'])
     .forEach(artist => console.log(`    ${artist}`))
 console.log("")
+
+// Display the release IDs of the rap and trap artists
+console.log('Rap & Trap Artists:')
+Tasks.getArtistIDs(artists, ['rap', 'trap'])
+    .forEach(id => console.log(`    ${id}`))
+console.log("")
