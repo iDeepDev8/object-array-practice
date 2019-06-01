@@ -24,3 +24,8 @@ console.log('Rap & Trap Artists:')
 Tasks.getArtistIDs(artists, ['rap', 'trap'])
     .forEach(id => console.log(`    ${id}`))
 console.log("")
+//Display the names of the releases by Queen
+console.log('Queen\'s releases')
+Tasks.getArtistReleases('Queen', artists, releases)
+    .forEach(release => console.log(`    ${release}`))
+console.log("")
