@@ -56,3 +56,24 @@ test('Displays the names of the pop artists', () => {
   const actual = tasks.popArtists(artists)
   expect(actual).toBe(expected)
 })
+
+test('Displays the release IDs of the rap and trap artists', () => {
+  const artists = [
+    { name: 'Lady Gaga', genre: 'pop', releaseIds: [1, 2] },
+    { name: 'Drake', genre: 'trap', releaseIds: [3, 5] },
+    { name: 'Eminem', genre: 'rap', releaseIds: [4, 5, 7] },
+    { name: 'Future', genre: 'trap', releaseIds: [2, 4] },
+    { name: 'Taylor Swift', genre: 'country', releaseIds: [6, 8] },
+    { name: 'Kanye', genre: 'rap', releaseIds: [3, 5] }
+  ]
+
+  const expected = {
+    Drake: [3, 5],
+    Eminem: [4, 5, 7],
+    Future: [2, 4],
+    Kanye: [3, 5]
+  }
+
+  const actual = tasks.displayIDs(artists)
+  expect(actual).toStrictEqual(expected)
+})

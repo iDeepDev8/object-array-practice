@@ -28,8 +28,21 @@ function popArtists (arr) {
   return names.join(', ')
 }
 
+function displayIDs (arr) {
+  let IDs = {}
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].genre === 'rap' || arr[i].genre === 'trap') {
+      IDs[arr[i].name] = arr[i].releaseIds
+    }
+  }
+
+  return IDs
+}
+
 module.exports = {
   displayNames,
   displayGenres,
-  popArtists
+  popArtists,
+  displayIDs
 }
