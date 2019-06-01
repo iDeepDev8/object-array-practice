@@ -41,13 +41,21 @@ test('should display the IDs of the rap and trap artists', () => {
     // Act
     const actual = Tasks.getArtistIDs(listeners, ['rap', 'trap'])
     // Assert
-    expect(actual).toBe(expected)
+    expect(actual).toEqual(expected)
 });
 
 test('should display the artist names of Listeners\'s genres', () => {
     // Arrange
     const expected = ['Knifeparty']
     const genres = ['trap', 'bop']
+    const artists = [{ name: 'Rihana', genre: 'pop' }, { name: 'Kanye', genre: 'rap' }, { name: 'Knifeparty', genre: 'trap' }]
+
+    // Act
+    const actual = Tasks.getArtistNames(artists, genres)
+    // Assert
+    expect(actual).toEqual(expected)
+});
+
 test('should display the names of the releases by Queen', () => {
     // Arrange
     const artist = 'Queen'
