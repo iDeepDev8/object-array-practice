@@ -4,6 +4,11 @@ function getListenerNames(listeners) {
     })
 }
 
+function getListenerGenres(listeners) {
+    return listeners.map(e => {
+        return { name: e.name, genres: [...e.genres] }
+    })
+}
 
 module.exports = {
 
