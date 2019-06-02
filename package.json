@@ -1,0 +1,24 @@
+{
+  "name": "object-array-practice",
+  "version": "1.0.0",
+  "description": "This is a self-assessment to help you understand how you're doing with the content and main take-aways from week 1 of the bootcamp. Each of the tasks you can try will have you displaying artist, releases and listener data in various ways inside the terminal.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "jest tasks.test.js --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matai-2019/object-array-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matai-2019/object-array-practice/issues"
+  },
+  "homepage": "https://github.com/matai-2019/object-array-practice#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
