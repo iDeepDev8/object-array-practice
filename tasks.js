@@ -1,9 +1,5 @@
-const listeners = require("./data/listeners");
-const artists = require("./data/artists");
-const releases = require("./data/releases");
-
-const displayListenersNames = listenersArray => {
-  return listenersArray.map(listener => listener.name);
+const displayListenersProp = (listenersArray, prop) => {
+  return listenersArray.map(listener => listener[prop]);
 };
 
 const displayListenersAndGenres = listenersArray => {
@@ -15,39 +11,66 @@ const displayListenersAndGenres = listenersArray => {
   });
 };
 
-const displayPopArtistsNames = artistsArray => {
+const displayArtistsNamesByGenre = (artistsArray, genreName) => {
   return artistsArray
-    .filter(artist => artist.genre === "pop")
-    .map(popArtist => popArtist.name);
+    .filter(artist => artist.genre === genreName)
+    .map(genreArtist => genreArtist.name);
 };
 
-const displayRapAndTrapIds = artistsArray => {
+const displayGenreIds = (artistsArray, genreName) => {
   return artistsArray
-    .filter(artist => artist.genre === "rap" || artist.genre === "trap")
-    .map(rapAndTrapArtist => rapAndTrapArtist.releaseIds);
+    .filter(artist => artist.genre === genreName)
+    .flatMap(rapAndTrapArtist => rapAndTrapArtist.releaseIds);
 };
 
-const displayQueenReleaseNames = (artistsArray, releasesArray) => {
-  const queenReleaseIds = artistsArray.find(artist => artist.name === "Queen")
+const displayArtistReleaseNames = (artistsArray, releasesArray, artistName) => {
+  const queenReleaseIds = artistsArray.find(artist => artist.name === artistName)
     .releaseIds;
   return releasesArray
     .filter(release => queenReleaseIds.includes(release.id))
     .map(release => release.name);
 };
 
-const displayDebrasArtists = (listenersArray, artistsArray) => {
-  const debrasGenres = listeners.find(listener => listener.name === "Debra")
+const displayListenerArtists = (listenersArray, artistsArray, listenerName) => {
+  const listenerGenres = listenersArray.find(listener => listener.name === listenerName)
     .genres;
   return artistsArray
-    .filter(artist => debrasGenres.includes(artist.genre))
-    .map(debrasArtist => debrasArtist.name);
+    .filter(artist => listenerGenres.includes(artist.genre))
+    .map(listenerArtist => listenerArtist.name);
 };
 
+const displayListenerReleases = (listenersArray, artistsArray, releasesArray, listenerName) => {
+  const listenerGenres = listenersArray.find(listener => listener.name === listenerName)
+    .genres;
+  const listenerReleaseIds = artistsArray
+    .filter(artist => listenerGenres.includes(artist.genre))
+    .flatMap(listenerArtist => listenerArtist.releaseIds);
+
+    return releasesArray
+    .filter(release => listenerReleaseIds.includes(release.id))
+    .map(release => release.name);
+};
+
+const displayAllListenerArtistsAndReleases = (listenersArray, artistsArray, releasesArray) => {
+  const allListenersArray = []
+  displayListenersProp(listenersArray, 'name').forEach(listener => {
+    let listenerObj = {
+      name: listener,
+      artistsNames: displayListenerArtists(listenersArray, artistsArray, listener),
+      releaseNames: displayListenerReleases(listenersArray, artistsArray, releasesArray, listener)
+    }
+    allListenersArray.push(listenerObj)
+  });
+  return allListenersArray
+}
+
 module.exports = {
-  displayListenersNames,
+  displayListenersProp,
   displayListenersAndGenres,
-  displayPopArtistsNames,
-  displayRapAndTrapIds,
-  displayQueenReleaseNames,
-  displayDebrasArtists
+  displayArtistsNamesByGenre,
+  displayGenreIds,
+  displayArtistReleaseNames,
+  displayListenerArtists,
+  displayListenerReleases,
+  displayAllListenerArtistsAndReleases
 };
