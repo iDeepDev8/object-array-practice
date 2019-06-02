@@ -14,7 +14,16 @@ function displayNamesGenres (array) {
   return namesAndGenres
 }
 
+function displayPopArtists (array) {
+  let popArtists = []
+  for (let i = 0; i < array.length; i++) {
+    popArtists.push(array[i].name)
+  }
+  return popArtists.join(', ')
+}
+
 module.exports = {
   displayNames,
-  displayNamesGenres
+  displayNamesGenres,
+  displayPopArtists
 }

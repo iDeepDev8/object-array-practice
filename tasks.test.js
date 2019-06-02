@@ -44,3 +44,16 @@ test('Display the listeners and their genres', () => {
   // assert
   expect(actual).toStrictEqual(expected)
 })
+
+test('Display the name of the pop artists', () => {
+  // arrange
+  const popArtists = [
+    { name: 'Queen', genre: 'pop' },
+    { name: 'The Beatles', genre: 'pop' }
+  ]
+  // act
+  const expected = 'Queen, The Beatles'
+  const actual = tasks.displayPopArtists(popArtists)
+  // assert
+  expect(actual).toBe(expected)
+})
