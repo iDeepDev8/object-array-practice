@@ -1,6 +1,9 @@
+// Data Imports
 const listeners = require('./data/listeners')
 const releases = require('./data/releases')
 const artists = require('./data/artists')
+
+// Module Import
 const Tasks = require('./tasks')
 
 // Display the names of all of the listeners
@@ -36,7 +39,7 @@ Tasks.getArtistReleases(Tasks.getArtist("Queen", artists).id, releases)
 console.log("")
 
 
-// Display artists and release names of all the listners
+// Get listeners and map releases to artists of their genre
 const mappedListeners = listeners.map(listener => {
     listener.artists = Tasks
         .getArtistIDs(artists, listener.genres)
@@ -48,6 +51,7 @@ const mappedListeners = listeners.map(listener => {
     return listener
 })
 
+// Display artists and release names of all the listners
 mappedListeners.forEach(listener =>{
     console.log(`${listener.name}\'s favourite artists: `)
     listener.artists.forEach(artist => console.log(`    Artist: ${artist.name}, Releases : ${artist.releases}`))
