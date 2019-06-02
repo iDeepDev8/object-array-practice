@@ -12,7 +12,7 @@ test('Display the names of all the listeners', () => {
     { name: 'Stina' }
   ]
   // act
-  const expected = ['Debra,', 'Jono', 'Stina']
+  const expected = 'Debra, Jono, Stina'
   const actual = tasks.displayNames(listeners)
   // assert
   expect(actual).toBe(expected)
