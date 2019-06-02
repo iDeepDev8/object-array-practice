@@ -4,10 +4,10 @@ const getListenersProp = (listenersArray, prop) => {
 
 const getListenersAndGenres = listenersArray => {
   return listenersArray.map(listener => {
-    let newListener = {};
-    newListener.name = listener.name;
-    newListener.genres = listener.genres;
-    return newListener;
+    return {
+      name: listener.name,
+      genres: listener.genres
+    };
   });
 };
 
