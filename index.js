@@ -31,6 +31,25 @@ console.log("")
 
 //Display the names of the releases by Queen
 console.log('Queen\'s releases')
-Tasks.getArtistReleases('Queen', artists, releases)
+Tasks.getArtistReleases(Tasks.getArtist("Queen", artists).id, releases)
     .forEach(release => console.log(`    ${release}`))
 console.log("")
+
+
+// Display artists and release names of all the listners
+const mappedListeners = listeners.map(listener => {
+    listener.artists = Tasks
+        .getArtistIDs(artists, listener.genres)
+        .map(artistId => {
+            let artist = artists.find(artist => artist.id === artistId)
+            artist.releases = Tasks.getArtistReleases(artist.id, releases)
+            return artist
+        })
+    return listener
+})
+
+mappedListeners.forEach(listener =>{
+    console.log(`${listener.name}\'s favourite artists: `)
+    listener.artists.forEach(artist => console.log(`Artist: ${artist.name}, Releases : ${artist.releases}`))
+    console.log("")
+})
