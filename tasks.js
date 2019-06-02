@@ -30,10 +30,9 @@ function getArtistIDs(artists, genres) {
         })
 }
 
-function getArtistReleases(artistName, artists, releases) {
-    const id = artists.find(artist => artist.name === artistName).id
+function getArtistReleases(artistId, releases) {
     return releases
-    .filter( release => release.id === id)
+    .filter( release => release.artistId === artistId)
     .map(release => release.name)
 }
 module.exports = {
