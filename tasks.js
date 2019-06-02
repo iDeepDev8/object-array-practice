@@ -35,6 +35,10 @@ function getArtistReleases(artistId, releases) {
     .filter( release => release.artistId === artistId)
     .map(release => release.name)
 }
+function getArtist(name, artists){
+    return artists.find(artist=> artist.name === name)
+}
+
 module.exports = {
     getListenerNames,
     getListenerGenres,
