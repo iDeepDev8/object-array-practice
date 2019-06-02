@@ -8,14 +8,14 @@ test("Test platform not broken!", () => {
 });
 
 test("Display all listeners names", () => {
-  const actual = tasks.displayListenersProp(listeners, 'name');
+  const actual = tasks.getListenersProp(listeners, 'name');
   const expected = ["Debra", "Jono", "Stina"];
 
   expect(actual).toEqual(expected);
 });
 
 test("Display listeners and their genres", () => {
-  const actual = tasks.displayListenersAndGenres(listeners);
+  const actual = tasks.getListenersAndGenres(listeners);
   const expected = [
     {
       name: "Debra",
@@ -35,7 +35,7 @@ test("Display listeners and their genres", () => {
 });
 
 test("Display all pop artists names", () => {
-  const actual = tasks.displayArtistsNamesByGenre(artists, 'pop');
+  const actual = tasks.getArtistsNamesByGenre(artists, 'pop');
   const expected = ["Queen", "The Beatles"];
 
   expect(actual).toEqual(expected);
@@ -46,7 +46,7 @@ test("Display release IDs of rap and trap artists", () => {
   const genresToTest = ['rap', 'trap']
 
   genresToTest.forEach(genre => {
-    const actual = tasks.displayGenreIds(artists, genre);
+    const actual = tasks.getReleaseIds(artists, genre);
     let expected = ''
     if (genre === 'rap') expected = [6, 7];
     if (genre === 'trap') expected = [8, 9];
@@ -56,21 +56,21 @@ test("Display release IDs of rap and trap artists", () => {
 });
 
 test("Display Queens release names", () => {
-  const actual = tasks.displayArtistReleaseNames(artists, releases, "Queen");
+  const actual = tasks.getArtistReleaseNames(artists, releases, "Queen");
   const expected = ["Flash Gordon", "A Kind of Magic", "Innuendo"];
 
   expect(actual).toEqual(expected);
 });
 
 test("Display artist names of Debras genres", () => {
-  const actual = tasks.displayListenerArtists(listeners, artists, "Debra");
+  const actual = tasks.getListenerArtists(listeners, artists, "Debra");
   const expected = ["Queen", "Thievery Corporation", "The Beatles"];
 
   expect(actual).toEqual(expected);
 });
 
 test("Display release names of Jonos genres", () => {
-  const actual = tasks.displayListenerReleases(
+  const actual = tasks.getListenerReleases(
     listeners,
     artists,
     releases,
@@ -87,7 +87,7 @@ test("Display release names of Jonos genres", () => {
 });
 
 test("Display the artist and release names of all of the listeners", () => {
-  const actual = tasks.displayAllListenerArtistsAndReleases(
+  const actual = tasks.getAllListenerArtistsAndReleases(
     listeners,
     artists,
     releases

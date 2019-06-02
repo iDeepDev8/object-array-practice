@@ -1,8 +1,8 @@
-const displayListenersProp = (listenersArray, prop) => {
+const getListenersProp = (listenersArray, prop) => {
   return listenersArray.map(listener => listener[prop]);
 };
 
-const displayListenersAndGenres = listenersArray => {
+const getListenersAndGenres = listenersArray => {
   return listenersArray.map(listener => {
     let newListener = {};
     newListener.name = listener.name;
@@ -11,19 +11,19 @@ const displayListenersAndGenres = listenersArray => {
   });
 };
 
-const displayArtistsNamesByGenre = (artistsArray, genreName) => {
+const getArtistsNamesByGenre = (artistsArray, genreName) => {
   return artistsArray
     .filter(artist => artist.genre === genreName)
     .map(genreArtist => genreArtist.name);
 };
 
-const displayGenreIds = (artistsArray, genreName) => {
+const getReleaseIds = (artistsArray, genreName) => {
   return artistsArray
     .filter(artist => artist.genre === genreName)
     .flatMap(rapAndTrapArtist => rapAndTrapArtist.releaseIds);
 };
 
-const displayArtistReleaseNames = (artistsArray, releasesArray, artistName) => {
+const getArtistReleaseNames = (artistsArray, releasesArray, artistName) => {
   const queenReleaseIds = artistsArray.find(artist => artist.name === artistName)
     .releaseIds;
   return releasesArray
@@ -31,7 +31,7 @@ const displayArtistReleaseNames = (artistsArray, releasesArray, artistName) => {
     .map(release => release.name);
 };
 
-const displayListenerArtists = (listenersArray, artistsArray, listenerName) => {
+const getListenerArtists = (listenersArray, artistsArray, listenerName) => {
   const listenerGenres = listenersArray.find(listener => listener.name === listenerName)
     .genres;
   return artistsArray
@@ -39,7 +39,7 @@ const displayListenerArtists = (listenersArray, artistsArray, listenerName) => {
     .map(listenerArtist => listenerArtist.name);
 };
 
-const displayListenerReleases = (listenersArray, artistsArray, releasesArray, listenerName) => {
+const getListenerReleases = (listenersArray, artistsArray, releasesArray, listenerName) => {
   const listenerGenres = listenersArray.find(listener => listener.name === listenerName)
     .genres;
   const listenerReleaseIds = artistsArray
@@ -51,13 +51,13 @@ const displayListenerReleases = (listenersArray, artistsArray, releasesArray, li
     .map(release => release.name);
 };
 
-const displayAllListenerArtistsAndReleases = (listenersArray, artistsArray, releasesArray) => {
+const getAllListenerArtistsAndReleases = (listenersArray, artistsArray, releasesArray) => {
   const allListenersArray = []
-  displayListenersProp(listenersArray, 'name').forEach(listener => {
+  getListenersProp(listenersArray, 'name').forEach(listener => {
     let listenerObj = {
       name: listener,
-      artistsNames: displayListenerArtists(listenersArray, artistsArray, listener),
-      releaseNames: displayListenerReleases(listenersArray, artistsArray, releasesArray, listener)
+      artistsNames: getListenerArtists(listenersArray, artistsArray, listener),
+      releaseNames: getListenerReleases(listenersArray, artistsArray, releasesArray, listener)
     }
     allListenersArray.push(listenerObj)
   });
@@ -65,12 +65,12 @@ const displayAllListenerArtistsAndReleases = (listenersArray, artistsArray, rele
 }
 
 module.exports = {
-  displayListenersProp,
-  displayListenersAndGenres,
-  displayArtistsNamesByGenre,
-  displayGenreIds,
-  displayArtistReleaseNames,
-  displayListenerArtists,
-  displayListenerReleases,
-  displayAllListenerArtistsAndReleases
+  getListenersProp,
+  getListenersAndGenres,
+  getArtistsNamesByGenre,
+  getReleaseIds,
+  getArtistReleaseNames,
+  getListenerArtists,
+  getListenerReleases,
+  getAllListenerArtistsAndReleases
 };
