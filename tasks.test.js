@@ -57,3 +57,37 @@ test('Display the name of the pop artists', () => {
   // assert
   expect(actual).toBe(expected)
 })
+
+test('Display the release IDs of the rap and trap artists', () => {
+  // arrange
+  const releaseIDs = [
+    { name: 'The Roots', releaseIds: [6, 7] },
+    { name: 'Baauer', releaseIds: [8, 9] }
+  ]
+  // act
+  const expected = {
+    'The Roots': '6, 7',
+    'Baauer': '8, 9'
+  }
+  const actual = tasks.displayReleaseIDs(releaseIDs)
+  // assert
+  expect(actual).toStrictEqual(expected)
+})
+
+test('Display the names of releases from a particular artist', () => {
+  // arrange
+  const artists = [
+    { name: 'Queen', id: '1', releases: ['Flash Gordon', 'A Kind of Magic', 'Innuendo'] },
+    { name: 'Thievery Corporation', id: '2', releases: ['The Richest Man in Babylon', 'The Mirror Conspiracy'] },
+    { name: 'The Roots', id: '3', releases: ['Phrenology', 'The Tipping Point'] },
+    { name: 'Baauer', id: '4', releases: ['Harlem Shake', 'Dum Dum'] },
+    { name: 'Iron and Wine', id: '5', releases: ['The Shephard\'s Dog', 'Our Endless Numbered Days'] },
+    { name: 'Armin van Buuren', id: '6', releases: ['Imagine', 'This is What it Feels Like'] },
+    { name: 'The Beatles', id: '7', releases: ['Abbey Road', 'Sgt. Pepper\'s Lonely Hearts Club Band'] }
+  ]
+  // act
+  const expected = 'Phrenology, The Tipping Point'
+  const actual = tasks.displayArtistReleases(artists)
+  // assert
+  expect(actual).toBe(expected)
+})

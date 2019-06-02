@@ -22,8 +22,22 @@ function displayPopArtists (array) {
   return popArtists.join(', ')
 }
 
+function displayReleaseIDs (array) { // DON'T UNDERSTAND THIS ONE SOMEONE HELP
+  let releaseIDs = {}
+  for (let i = 0; i < array.length; i++) {
+    releaseIDs[array[i].name] = array[i].releaseIds.join(', ')
+  }
+  return releaseIDs
+}
+
+function displayArtistReleases (array, artist) {
+
+}
+
 module.exports = {
   displayNames,
   displayNamesGenres,
-  displayPopArtists
+  displayPopArtists,
+  displayReleaseIDs,
+  displayArtistReleases
 }
