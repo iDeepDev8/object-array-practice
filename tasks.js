@@ -6,6 +6,15 @@ function displayNames (array) {
   return names.join(', ')
 }
 
+function displayNamesGenres (array) {
+  let namesAndGenres = {}
+  for (let i = 0; i < array.length; i++) {
+    namesAndGenres[array[i].name] = array[i].genres
+  }
+  return namesAndGenres
+}
+
 module.exports = {
-  displayNames
+  displayNames,
+  displayNamesGenres
 }

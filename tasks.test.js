@@ -17,3 +17,30 @@ test('Display the names of all the listeners', () => {
   // assert
   expect(actual).toBe(expected)
 })
+
+test('Display the listeners and their genres', () => {
+  // arrange
+  const listenersAndGenres = [
+    {
+      name: 'Debra',
+      genres: ['pop', 'chill']
+    },
+    {
+      name: 'Jono',
+      genres: ['rap', 'trap']
+    },
+    {
+      name: 'Stina',
+      genres: ['folk', 'trance']
+    }
+  ]
+  // act
+  const expected = {
+    Debra: ['pop', 'chill'],
+    Jono: ['rap', 'trap'],
+    Stina: ['folk', 'trance']
+  }
+  const actual = tasks.displayNamesGenres(listenersAndGenres)
+  // assert
+  expect(actual).toStrictEqual(expected)
+})
