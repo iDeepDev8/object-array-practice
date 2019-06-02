@@ -50,6 +50,6 @@ const mappedListeners = listeners.map(listener => {
 
 mappedListeners.forEach(listener =>{
     console.log(`${listener.name}\'s favourite artists: `)
-    listener.artists.forEach(artist => console.log(`Artist: ${artist.name}, Releases : ${artist.releases}`))
+    listener.artists.forEach(artist => console.log(`    Artist: ${artist.name}, Releases : ${artist.releases}`))
     console.log("")
 })
