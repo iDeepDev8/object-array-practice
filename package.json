@@ -1,0 +1,14 @@
+{
+  "name": "s01e03-2",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "scripts": {
+    "test": "jest --watchAll --noStackTrace"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
